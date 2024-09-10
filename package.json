@@ -1,0 +1,66 @@
+{
+  "name": "sdusd-gotw",
+  "version": "0.0.0",
+  "description": "Broadcast graphics for SDUSD live sports events.",
+  "author": {
+    "name": "Samuel Sharp",
+    "email": "samuelsharp4@gmail.com"
+  },
+  "files": [
+    "dashboard",
+    "graphics",
+    "extension.js",
+    "extension"
+  ],
+  "keywords": [
+    "nodecg-bundle"
+  ],
+  "nodecg": {
+    "compatibleRange": "^2.0.0",
+    "dashboardPanels": [
+      {
+        "name": "panel",
+        "title": "SDUSD GOTW",
+        "file": "panel.html",
+        "fullbleed": true
+      }
+    ],
+    "graphics": [
+      {
+        "file": "matchup.html",
+        "width": 1920,
+        "height": 1080,
+        "singleInstance": false
+      },
+      {
+        "file": "score.html",
+        "width": 1920,
+        "height": 1080,
+        "singleInstance": false
+      },
+      {
+        "file": "lowerthird.html",
+        "width": 1920,
+        "height": 1080,
+        "singleInstance": false
+      }
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.5%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "jquery": "^3.7.1"
+  }
+}

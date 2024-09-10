@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<style>
+		body {
+			padding: 12px;
+			padding-top: 30px;
+			margin: 0;
+		}
+
+		* {
+			font-size: 1.05em;
+			font-family: 'Roboto', 'Noto', sans-serif !important;
+			color: white;
+		}
+
+		select,
+		button,
+		input {
+			background-color: #525F78;
+			border: none;
+			padding: 5px;
+			border-radius: 5px;
+			cursor: pointer;
+		}
+
+		input::placeholder {
+			color: white;
+		}
+
+		hr {
+			border: 1px solid white;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="root">
+		<input id="away-score" placeholder="Away Score">
+		<span style="padding-left:10px;padding-right:10px;">-</span>
+		<input id="home-score" placeholder="Home Score">
+		<button style="margin-left:10px;" id="button-save-score">SAVE</button>
+		<br /><br />
+		<button class="button-qt-1">Q1</button>
+		<button class="button-qt-2">Q2</button>
+		<button class="button-qt-3">Q3</button>
+		<button class="button-qt-4">Q4</button>
+		<br /><br />
+		<hr /><br />
+		<button class="button-show-score">Show Score</button>
+		<button class="button-hide-score">Hide Score</button>
+		<br /><br />
+		<button class="button-show-anchors">Show Anchors</button>
+		<button class="button-hide-anchors">Hide Anchors</button>
+		<br /><br />
+		<button class="button-show-slate">Show Slate</button>
+		<button class="button-show-matchup">Show Matchup</button>
+		<button class="button-hide-matchup">Hide Matchup</button>
+	</div>
+	<script>
+		// Matchup graphic
+		document.querySelector('.button-show-matchup').addEventListener('click', () => {
+			nodecg.sendMessage('visible-matchup', true)
+		})
+
+		document.querySelector('.button-hide-matchup').addEventListener('click', () => {
+			nodecg.sendMessage('visible-matchup-slate', false)
+			nodecg.sendMessage('visible-matchup', false)
+		})
+
+		document.querySelector('.button-show-slate').addEventListener('click', () => {
+			nodecg.sendMessage('visible-matchup-slate', true)
+			nodecg.sendMessage('visible-matchup', true)
+		})
+
+		// Score graphic
+		const awayScore = nodecg.Replicant('away-score', {
+			defaultValue: 0
+		})
+
+		const homeScore = nodecg.Replicant('home-score', {
+			defaultValue: 0
+		})
+
+		const qtrRef = nodecg.Replicant('qtr', {
+			defaultValue: "Q1"
+		})
+
+		document.querySelector('.button-qt-1').addEventListener('click', () => { qtrRef.value = "Q1" })
+		document.querySelector('.button-qt-2').addEventListener('click', () => { qtrRef.value = "Q2" })
+		document.querySelector('.button-qt-3').addEventListener('click', () => { qtrRef.value = "Q3" })
+		document.querySelector('.button-qt-4').addEventListener('click', () => { qtrRef.value = "Q4" })
+
+		document.querySelector('#button-save-score').addEventListener('click', () => {
+			awayScore.value = document.querySelector('#away-score').value
+			homeScore.value = document.querySelector('#home-score').value
+		})
+
+		document.querySelector('.button-show-score').addEventListener('click', () => {
+			nodecg.sendMessage('visible-score', true)
+		})
+
+		document.querySelector('.button-hide-score').addEventListener('click', () => {
+			nodecg.sendMessage('visible-score', false)
+		})
+
+		// Lower third (anchors) graphic
+		document.querySelector('.button-show-anchors').addEventListener('click', () => {
+			nodecg.sendMessage('visible-anchors', true)
+		})
+
+		document.querySelector('.button-hide-anchors').addEventListener('click', () => {
+			nodecg.sendMessage('visible-anchors', false)
+		})
+	</script>
+</body>
+
+</html>
