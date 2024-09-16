@@ -27,19 +27,7 @@
     ],
     "graphics": [
       {
-        "file": "matchup.html",
-        "width": 1920,
-        "height": 1080,
-        "singleInstance": false
-      },
-      {
-        "file": "score.html",
-        "width": 1920,
-        "height": 1080,
-        "singleInstance": false
-      },
-      {
-        "file": "lowerthird.html",
+        "file": "gotw-core.html",
         "width": 1920,
         "height": 1080,
         "singleInstance": false

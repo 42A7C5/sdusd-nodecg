@@ -55,12 +55,18 @@
 		<button class="button-show-anchors">Show Anchors</button>
 		<button class="button-hide-anchors">Hide Anchors</button>
 		<br /><br />
+		<button class="button-show-slate">Show Slate</button>
 		<button class="button-show-matchup">Show Matchup</button>
 		<button class="button-hide-matchup">Hide Matchup</button>
 	</div>
 	<script>
 		// Matchup graphic
 		document.querySelector('.button-show-matchup').addEventListener('click', () => {
+			nodecg.sendMessage('visible-matchup', true)
+		})
+
+		document.querySelector('.button-show-slate').addEventListener('click', () => {
+			nodecg.sendMessage('visible-matchup-slate', true)
 			nodecg.sendMessage('visible-matchup', true)
 		})
 
