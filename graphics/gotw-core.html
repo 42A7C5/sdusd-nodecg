@@ -45,8 +45,8 @@
 
 		#scorebox-away-logo,
 		#scorebox-home-logo {
-			width: 3vw;
-			height: 3vw;
+			width: 3.5vw;
+			height: 3.5vw;
 			z-index: 999;
 		}
 
@@ -72,10 +72,25 @@
 			font-weight: 500;
 		}
 
+		#slate-overlay {
+			background-color: #0a233f;
+			display: inline-block;
+			color: white;
+			padding: 0.5vw;
+			width: 13vw;
+			position: fixed;
+			bottom: 2vw;
+			right: 2vw;
+			border-radius: 1vw;
+			text-align: center;
+			font-size: 3vw;
+			font-weight: 500;
+		}
+
 		/* Matchup boxes (infoboxes) */
 		#infoboxes {
 			position: absolute;
-			top: 40vw;
+			top: 0vw;
 			width: 100%;
 			height: 30%;
 			display: flex;
@@ -99,7 +114,6 @@
 			align-items: center;
 			border-radius: 1vw;
 			color: white;
-
 			opacity: 0;
 		}
 
@@ -117,8 +131,8 @@
 
 		#infobox-away-logo,
 		#infobox-home-logo {
-			width: 6vw;
-			height: 6vw;
+			width: 7vw;
+			height: 7vw;
 			z-index: 999;
 		}
 
@@ -198,7 +212,7 @@
 
 <body>
 	<!-- Scoreboard -->
-	<div id="scorebox" style="display:none">
+	<div id="scorebox" style="display: none">
 		<span id="scorebox-away">
 			<img src="" id="scorebox-away-logo">
 			<span id="scorebox-away-score">00</span>
@@ -208,7 +222,10 @@
 			<span id="scorebox-home-score">00</span>
 		</span>
 		<span id="scorebox-addl">
-			<span id="scorebox-qtr">Q1</span> • <span id="scorebox-clock">00:00 PM</span>
+			<span id="scorebox-qtr-wrap">
+				<span id="scorebox-qtr">Q1</span> • 
+			</span>
+			<span id="scorebox-clock">00:00 PM</span>
 		</span>
 	</div>
 
@@ -240,15 +257,23 @@
 		</div>
 	</div>
 
+	<span id="slate-overlay" style="display: none">
+		<span id="slate-clock">00:00 PM</span>
+	</span>
+
 	<!-- Slate/bg -->
-	<img src="https://www.sdmts.com/sites/default/files/attachments/mtstrolley-missionbay.jpg" id="slate">
+	<img src="slate.jpg" id="slate">
 	<script>
 		const qtrRef = nodecg.Replicant('qtr', {
-			defaultValue: "Q1"
+			defaultValue: "QX"
 		})
 
 		setInterval(() => {
 			$('#scorebox-clock').text(new Date().toLocaleTimeString('en-US', {
+				hour: '2-digit',
+				minute: '2-digit'
+			}))
+			$('#slate-clock').text(new Date().toLocaleTimeString('en-US', {
 				hour: '2-digit',
 				minute: '2-digit'
 			}))
@@ -265,7 +290,12 @@
 		$('#scorebox-home-logo').attr('src', `./teams/${home.id}.png`);
 
 		qtrRef.on('change', (newQtrRef, oldQtrRef) => {
-			$('#scorebox-qtr').text(newQtrRef)
+			if (newQtrRef == 'QX') {
+				$('#scorebox-qtr-wrap').fadeOut(250)
+			} else {
+				$('#scorebox-qtr-wrap').fadeIn(250)
+				$('#scorebox-qtr').text(newQtrRef)
+			}
 		})
 
 		const awayScore = nodecg.Replicant('away-score', {
@@ -335,8 +365,10 @@
 		nodecg.listenFor('visible-matchup-slate', isVisible => {
 			if (isVisible) {
 				$('#slate').fadeIn(300);
+				$('#slate-overlay').fadeIn(300);
 			} else {
 				$('#slate').fadeOut(300);
+				$('#slate-overlay').fadeOut(300);
 			}
 		});
 

@@ -43,6 +43,7 @@
 		<input id="home-score" placeholder="Home Score">
 		<button style="margin-left:10px;" id="button-save-score">SAVE</button>
 		<br /><br />
+		<button class="button-qt-x">PG</button>
 		<button class="button-qt-1">Q1</button>
 		<button class="button-qt-2">Q2</button>
 		<button class="button-qt-3">Q3</button>
@@ -61,13 +62,26 @@
 	</div>
 	<script>
 		// Matchup graphic
+		document.querySelector('.button-show-score').addEventListener('click', () => {
+			nodecg.sendMessage('visible-score', true)
+			nodecg.sendMessage('visible-matchup', false)
+			nodecg.sendMessage('visible-matchup-slate', false)
+		})
+
+		document.querySelector('.button-hide-score').addEventListener('click', () => {
+			nodecg.sendMessage('visible-score', false)
+		})
+
 		document.querySelector('.button-show-matchup').addEventListener('click', () => {
 			nodecg.sendMessage('visible-matchup', true)
+			nodecg.sendMessage('visible-anchors', false)
 		})
 
 		document.querySelector('.button-show-slate').addEventListener('click', () => {
+			nodecg.sendMessage('visible-score', false)
 			nodecg.sendMessage('visible-matchup-slate', true)
 			nodecg.sendMessage('visible-matchup', true)
+			nodecg.sendMessage('visible-anchors', false)
 		})
 
 		document.querySelector('.button-hide-matchup').addEventListener('click', () => {
@@ -85,9 +99,10 @@
 		})
 
 		const qtrRef = nodecg.Replicant('qtr', {
-			defaultValue: "Q1"
+			defaultValue: "QX"
 		})
 
+		document.querySelector('.button-qt-x').addEventListener('click', () => { qtrRef.value = "QX" })
 		document.querySelector('.button-qt-1').addEventListener('click', () => { qtrRef.value = "Q1" })
 		document.querySelector('.button-qt-2').addEventListener('click', () => { qtrRef.value = "Q2" })
 		document.querySelector('.button-qt-3').addEventListener('click', () => { qtrRef.value = "Q3" })
@@ -98,17 +113,11 @@
 			homeScore.value = document.querySelector('#home-score').value
 		})
 
-		document.querySelector('.button-show-score').addEventListener('click', () => {
-			nodecg.sendMessage('visible-score', true)
-		})
-
-		document.querySelector('.button-hide-score').addEventListener('click', () => {
-			nodecg.sendMessage('visible-score', false)
-		})
-
 		// Lower third (anchors) graphic
 		document.querySelector('.button-show-anchors').addEventListener('click', () => {
 			nodecg.sendMessage('visible-anchors', true)
+			nodecg.sendMessage('visible-matchup-slate', false)
+			nodecg.sendMessage('visible-matchup', false)
 		})
 
 		document.querySelector('.button-hide-anchors').addEventListener('click', () => {

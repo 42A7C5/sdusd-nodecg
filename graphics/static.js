@@ -25,12 +25,30 @@ window.schools = {
             primary: '#0072BC',
             secondary: '#005E9B'
         }
+    },
+    'SOWS': {
+        id: 'SOWS',
+        name: 'Southwest San Diego',
+        team: 'Raiders',
+        color: {
+            primary: '#AA1E34',
+            secondary: '#730E1C'
+        }
+    },
+    'KEAR': {
+        id: 'KEAR',
+        name: 'Kearny',
+        team: 'Komets',
+        color: {
+            primary: '#451625',
+            secondary: '#72253D'
+        }
     }
 }
 
 window.game = {
-    away: 'RABE',
-    home: 'POLO',
-    anchorA: 'Ethan Ramirez',
+    away: 'SOWS',
+    home: 'KEAR',
+    anchorA: 'Kennedy Murphy',
     anchorB: 'Hillel Jacobs'
 }
