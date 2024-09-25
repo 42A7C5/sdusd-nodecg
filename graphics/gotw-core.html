@@ -87,6 +87,32 @@
 			font-weight: 500;
 		}
 
+		#lowerbox {
+			background: linear-gradient(0deg, #0a233f, #061c34);
+			border: 0.3vw solid #0a233f;
+			display: inline-block;
+			color: white;
+			padding: 1.5vw;
+			width: 33vw;
+			position: fixed;
+			bottom: 2vw;
+			left: 2vw;
+			border-radius: 1vw;
+			text-align: left;
+		}
+
+		#lowerbox-title {
+			font-size: 3.8vw;
+			font-weight: 500;
+		}
+
+		#lowerbox-content {
+			font-size: 2.9vw;
+			font-weight: 300;
+			display: block;
+			margin-top: 1vw;
+		}
+
 		/* Matchup boxes (infoboxes) */
 		#infoboxes {
 			position: absolute;
@@ -261,6 +287,18 @@
 		<span id="slate-clock">00:00 PM</span>
 	</span>
 
+	<!-- Lowerbox -->
+	<span id="lowerbox">
+		<span id="lowerbox-title">Keys to the game</span>
+		<span id="lowerbox-content">
+			> Lorem ipsum dolor sit amet
+			<br />
+			> Consectetur adipiscing elit
+			<br />
+			> Sed do eiusmod tempor incididunt
+		</span>
+	</span>
+
 	<!-- Slate/bg -->
 	<img src="slate.jpg" id="slate">
 	<script>
@@ -288,6 +326,8 @@
 		$('#scorebox-home').css('background', home.color.primary);
 		$('#scorebox-home').css('border', `0.4vw solid ${home.color.secondary}`);
 		$('#scorebox-home-logo').attr('src', `./teams/${home.id}.png`);
+
+		$('#lowerbox-content').html(`> ${window.game.keys.join('<br />> ')}`)
 
 		qtrRef.on('change', (newQtrRef, oldQtrRef) => {
 			if (newQtrRef == 'QX') {
@@ -325,6 +365,14 @@
 				$('#scorebox').fadeIn(200);
 			} else {
 				$('#scorebox').fadeOut(200);
+			}
+		});
+
+		nodecg.listenFor('visible-keys', isVisible => {
+			if (isVisible) {
+				$('#lowerbox').show(300);
+			} else {
+				$('#lowerbox').hide(300);
 			}
 		});
 

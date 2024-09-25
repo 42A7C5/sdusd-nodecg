@@ -56,6 +56,9 @@
 		<button class="button-show-anchors">Show Anchors</button>
 		<button class="button-hide-anchors">Hide Anchors</button>
 		<br /><br />
+		<button class="button-show-keys">Show Keys</button>
+		<button class="button-hide-keys">Hide Keys</button>
+		<br /><br />
 		<button class="button-show-slate">Show Slate</button>
 		<button class="button-show-matchup">Show Matchup</button>
 		<button class="button-hide-matchup">Hide Matchup</button>
@@ -72,6 +75,17 @@
 			nodecg.sendMessage('visible-score', false)
 		})
 
+		document.querySelector('.button-show-keys').addEventListener('click', () => {
+			nodecg.sendMessage('visible-keys', true)
+			nodecg.sendMessage('visible-matchup', false)
+			nodecg.sendMessage('visible-matchup-slate', false)
+			nodecg.sendMessage('visible-anchors', false)
+		})
+
+		document.querySelector('.button-hide-keys').addEventListener('click', () => {
+			nodecg.sendMessage('visible-keys', false)
+		})
+
 		document.querySelector('.button-show-matchup').addEventListener('click', () => {
 			nodecg.sendMessage('visible-matchup', true)
 			nodecg.sendMessage('visible-anchors', false)
@@ -79,6 +93,7 @@
 
 		document.querySelector('.button-show-slate').addEventListener('click', () => {
 			nodecg.sendMessage('visible-score', false)
+			nodecg.sendMessage('visible-keys', false)
 			nodecg.sendMessage('visible-matchup-slate', true)
 			nodecg.sendMessage('visible-matchup', true)
 			nodecg.sendMessage('visible-anchors', false)
@@ -118,6 +133,7 @@
 			nodecg.sendMessage('visible-anchors', true)
 			nodecg.sendMessage('visible-matchup-slate', false)
 			nodecg.sendMessage('visible-matchup', false)
+			nodecg.sendMessage('visible-keys', false)
 		})
 
 		document.querySelector('.button-hide-anchors').addEventListener('click', () => {

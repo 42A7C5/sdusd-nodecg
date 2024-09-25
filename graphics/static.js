@@ -50,5 +50,6 @@ window.game = {
     away: 'SOWS',
     home: 'KEAR',
     anchorA: 'Kennedy Murphy',
-    anchorB: 'Hillel Jacobs'
+    anchorB: 'Hillel Jacobs',
+    keys: ['Play fast', 'Play smart', 'Play together']
 }
