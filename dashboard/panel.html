@@ -56,7 +56,13 @@
 		<button class="button-show-anchors">Show Anchors</button>
 		<button class="button-hide-anchors">Hide Anchors</button>
 		<br /><br />
-		<button class="button-show-keys">Show Keys</button>
+		<button class="button-show-keys">Game Keys</button>
+		<button class="button-show-keys-p1">Key Player 1</button>
+		<button class="button-show-keys-p2">Key Player 2</button>
+		<button class="button-show-keys-p3">Key Player 3</button>
+		<button class="button-show-keys-p4">Key Player 4</button>
+		<button class="button-show-keys-p5">Key Player 5</button>
+		<button class="button-show-keys-p6">Key Player 6</button>
 		<button class="button-hide-keys">Hide Keys</button>
 		<br /><br />
 		<button class="button-show-slate">Show Slate</button>
@@ -76,19 +82,63 @@
 		})
 
 		document.querySelector('.button-show-keys').addEventListener('click', () => {
-			nodecg.sendMessage('visible-keys', true)
+			nodecg.sendMessage('visible-keys', 0)
+			nodecg.sendMessage('visible-matchup', false)
+			nodecg.sendMessage('visible-matchup-slate', false)
+			nodecg.sendMessage('visible-anchors', false)
+		})
+
+		document.querySelector('.button-show-keys-p1').addEventListener('click', () => {
+			nodecg.sendMessage('visible-keys', 1)
+			nodecg.sendMessage('visible-matchup', false)
+			nodecg.sendMessage('visible-matchup-slate', false)
+			nodecg.sendMessage('visible-anchors', false)
+		})
+
+		document.querySelector('.button-show-keys-p2').addEventListener('click', () => {
+			nodecg.sendMessage('visible-keys', 2)
+			nodecg.sendMessage('visible-matchup', false)
+			nodecg.sendMessage('visible-matchup-slate', false)
+			nodecg.sendMessage('visible-anchors', false)
+		})
+
+		document.querySelector('.button-show-keys-p3').addEventListener('click', () => {
+			nodecg.sendMessage('visible-keys', 3)
+			nodecg.sendMessage('visible-matchup', false)
+			nodecg.sendMessage('visible-matchup-slate', false)
+			nodecg.sendMessage('visible-anchors', false)
+		})
+
+		document.querySelector('.button-show-keys-p4').addEventListener('click', () => {
+			nodecg.sendMessage('visible-keys', 4)
+			nodecg.sendMessage('visible-matchup', false)
+			nodecg.sendMessage('visible-matchup-slate', false)
+			nodecg.sendMessage('visible-anchors', false)
+		})
+
+		document.querySelector('.button-show-keys-p5').addEventListener('click', () => {
+			nodecg.sendMessage('visible-keys', 5)
+			nodecg.sendMessage('visible-matchup', false)
+			nodecg.sendMessage('visible-matchup-slate', false)
+			nodecg.sendMessage('visible-anchors', false)
+		})
+
+		document.querySelector('.button-show-keys-p6').addEventListener('click', () => {
+			nodecg.sendMessage('visible-keys', 6)
 			nodecg.sendMessage('visible-matchup', false)
 			nodecg.sendMessage('visible-matchup-slate', false)
 			nodecg.sendMessage('visible-anchors', false)
 		})
 
 		document.querySelector('.button-hide-keys').addEventListener('click', () => {
-			nodecg.sendMessage('visible-keys', false)
+			nodecg.sendMessage('visible-keys', -1)
 		})
 
 		document.querySelector('.button-show-matchup').addEventListener('click', () => {
 			nodecg.sendMessage('visible-matchup', true)
 			nodecg.sendMessage('visible-anchors', false)
+			nodecg.sendMessage('visible-keys', false)
+			nodecg.sendMessage('visible-score', false)
 		})
 
 		document.querySelector('.button-show-slate').addEventListener('click', () => {

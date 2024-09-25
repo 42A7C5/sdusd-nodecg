@@ -88,8 +88,7 @@
 		}
 
 		#lowerbox {
-			background: linear-gradient(0deg, #0a233f, #061c34);
-			border: 0.3vw solid #0a233f;
+			background: #0a233f;
 			display: inline-block;
 			color: white;
 			padding: 1.5vw;
@@ -111,6 +110,14 @@
 			font-weight: 300;
 			display: block;
 			margin-top: 1vw;
+		}
+
+		#lowerbox-logo {
+			width: 5vw;
+			height: 5vw;
+			display: inline;
+			margin-right: 1.3vw;
+			transform: translateY(0.7vw);
 		}
 
 		/* Matchup boxes (infoboxes) */
@@ -288,7 +295,8 @@
 	</span>
 
 	<!-- Lowerbox -->
-	<span id="lowerbox">
+	<span id="lowerbox" style="display: none">
+		<img src="" id="lowerbox-logo">
 		<span id="lowerbox-title">Keys to the game</span>
 		<span id="lowerbox-content">
 			> Lorem ipsum dolor sit amet
@@ -326,8 +334,6 @@
 		$('#scorebox-home').css('background', home.color.primary);
 		$('#scorebox-home').css('border', `0.4vw solid ${home.color.secondary}`);
 		$('#scorebox-home-logo').attr('src', `./teams/${home.id}.png`);
-
-		$('#lowerbox-content').html(`> ${window.game.keys.join('<br />> ')}`)
 
 		qtrRef.on('change', (newQtrRef, oldQtrRef) => {
 			if (newQtrRef == 'QX') {
@@ -368,11 +374,26 @@
 			}
 		});
 
-		nodecg.listenFor('visible-keys', isVisible => {
-			if (isVisible) {
-				$('#lowerbox').show(300);
-			} else {
+		nodecg.listenFor('visible-keys', keyNumber => {
+			if (keyNumber == -1) {
 				$('#lowerbox').hide(300);
+			} else {
+				if (window.game.lowers[keyNumber][0] == 1) {
+					$('#lowerbox').css('background', `linear-gradient(0deg, ${away.color.primary}, ${away.color.secondary})`);
+					$('#lowerbox-logo').attr('src', `./teams/${away.id}.png`);
+					$('#lowerbox-logo').show();
+
+				} else if (window.game.lowers[keyNumber][0] == 2) {
+					$('#lowerbox').css('background', `linear-gradient(to right, ${home.color.primary}, ${home.color.secondary})`);
+					$('#lowerbox-logo').attr('src', `./teams/${home.id}.png`);
+					$('#lowerbox-logo').show();
+				} else {
+					$('#lowerbox').css('background', `#0a233f`);
+					$('#lowerbox-logo').hide();
+				}
+				$('#lowerbox-title').text(window.game.lowers[keyNumber][1]);
+				$('#lowerbox-content').html(`> ${window.game.lowers[keyNumber][2].join('<br />> ')}`);
+				$('#lowerbox').show(300);
 			}
 		});
 
