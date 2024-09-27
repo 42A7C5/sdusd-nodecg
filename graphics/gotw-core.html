@@ -62,7 +62,7 @@
 			display: inline-block;
 			color: white;
 			padding: 0.5vw;
-			width: 13vw;
+			width: 5vw;
 			position: fixed;
 			top: 2vw;
 			right: 2vw;
@@ -116,8 +116,15 @@
 			width: 5vw;
 			height: 5vw;
 			display: inline;
-			margin-right: 1.3vw;
+			margin-right: 1vw;
 			transform: translateY(0.7vw);
+		}
+
+		#lowerbox-pfp {
+			width: 10vw;
+			padding-bottom: 1vw;
+			height: auto;
+			display: block;
 		}
 
 		/* Matchup boxes (infoboxes) */
@@ -255,10 +262,7 @@
 			<span id="scorebox-home-score">00</span>
 		</span>
 		<span id="scorebox-addl">
-			<span id="scorebox-qtr-wrap">
-				<span id="scorebox-qtr">Q1</span> • 
-			</span>
-			<span id="scorebox-clock">00:00 PM</span>
+			<span id="scorebox-qtr">Q1</span>
 		</span>
 	</div>
 
@@ -296,6 +300,7 @@
 
 	<!-- Lowerbox -->
 	<span id="lowerbox" style="display: none">
+		<img src="" id="lowerbox-pfp">
 		<img src="" id="lowerbox-logo">
 		<span id="lowerbox-title">Keys to the game</span>
 		<span id="lowerbox-content">
@@ -315,10 +320,6 @@
 		})
 
 		setInterval(() => {
-			$('#scorebox-clock').text(new Date().toLocaleTimeString('en-US', {
-				hour: '2-digit',
-				minute: '2-digit'
-			}))
 			$('#slate-clock').text(new Date().toLocaleTimeString('en-US', {
 				hour: '2-digit',
 				minute: '2-digit'
@@ -337,10 +338,10 @@
 
 		qtrRef.on('change', (newQtrRef, oldQtrRef) => {
 			if (newQtrRef == 'QX') {
-				$('#scorebox-qtr-wrap').fadeOut(250)
+				$('#scorebox-addl').fadeOut(250)
 			} else {
-				$('#scorebox-qtr-wrap').fadeIn(250)
 				$('#scorebox-qtr').text(newQtrRef)
+				$('#scorebox-addl').fadeIn(250)
 			}
 		})
 
@@ -391,6 +392,14 @@
 					$('#lowerbox').css('background', `#0a233f`);
 					$('#lowerbox-logo').hide();
 				}
+				
+				if (window.game.lowers[keyNumber][3] != '') {
+					$('#lowerbox-pfp').attr('src', `${window.game.lowers[keyNumber][3]}`);
+					$('#lowerbox-pfp').show();
+				} else {
+					$('#lowerbox-pfp').hide();
+				}
+
 				$('#lowerbox-title').text(window.game.lowers[keyNumber][1]);
 				$('#lowerbox-content').html(`> ${window.game.lowers[keyNumber][2].join('<br />> ')}`);
 				$('#lowerbox').show(300);

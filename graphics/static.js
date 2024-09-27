@@ -52,12 +52,12 @@ window.game = {
     anchorA: 'Kennedy Murphy',
     anchorB: 'Hillel Jacobs',
     lowers: [
-        [0, 'Keys to the game', ['Play fast', 'Play smart', 'Play together']],
-        [1, '#1 Caver Bob', ['Is fast', 'Plays smart']],
-        [1, '#2 Caver Bob', ['Is fast', 'Plays smart']],
-        [1, '#3 Caver Bob', ['Is fast', 'Plays smart']],
-        [2, '#4 Caver Bob', ['Is fast', 'Plays smart']],
-        [2, '#5 Caver Bob', ['Is fast', 'Plays smart']],
-        [2, '#6 Caver Bob', ['Is fast', 'Plays smart']],
+        [0, 'Keys to the game', ['Play fast', 'Play smart', 'Play together'], ''],
+        [1, '#1 Caver Bob', ['Is fast', 'Plays smart'], './players/samuel.jpg'],
+        [1, '#2 Caver Bob', ['Is fast', 'Plays smart'], ''],
+        [1, '#3 Caver Bob', ['Is fast', 'Plays smart'], ''],
+        [2, '#4 Caver Bob', ['Is fast', 'Plays smart'], ''],
+        [2, '#5 Caver Bob', ['Is fast', 'Plays smart'], ''],
+        [2, '#6 Caver Bob', ['Is fast', 'Plays smart'], ''],
     ]
 }
