@@ -49,7 +49,7 @@ window.schools = {
         name: 'Scripps Ranch',
         team: 'Falcons',
         color: {
-            primary: '#143263',
+            primary: '#762F3D',
             secondary: '#AF4343'
         }
     },
@@ -61,22 +61,31 @@ window.schools = {
             primary: '#AC2A3A',
             secondary: '#22303E'
         }
+    },
+    'UNCI': {
+        id: 'UNCI',
+        name: 'University City',
+        team: 'Centurions',
+        color: {
+            primary: '#4F81BD',
+            secondary: '#222c6a'
+        }
     }
 }
 
 window.game = {
-    away: 'LAJO',
-    home: 'SCRA',
+    away: 'SCRA',
+    home: 'UNCI',
     anchorA: 'Levi Johnson',
-    anchorB: 'Valentino Arenas',
+    anchorB: 'Ethan Ramirez',
     lowers: [
-        [1, 'Keys to the game', ['Diversifying scoring plays', 'Protecting the QB', 'Defending against rushing'], ''],
-        [1, '#1 Hudson Smith', ['League: 7th for passing yards'], ''],
-        [1, '#4 Hank Hansen', ['Career: 1136 recieving yards'], ''],
-        [1, '#33 Wyatt Boczyanowski', ['Career: 234 tackles'], ''],
-        [2, 'Keys to the game', ['Keep offense humming', 'Maximize turnovers', 'Defending against runs'], ''],
-        [2, '#2 Parker Armstrong', ['Sophomore QR', 'Captain of a steady offense'], ''],
-        [2, '#32 Ryan Stadtherr', ['vs. Norwalk: 2 rushing touchdowns, 3 defensive stops'], ''],
-        [2, '#14 Charlie Barajas', ['Solid connection w/ Armstrong', 'vs. LJ Country Day: 24yd touchdown'], ''],
+        [1, 'Keys to the game', ['Keep offense humming', 'Keep rushing on lock', 'Hold the line'], ''],
+        [1, '#2 Parker Armstrong', ['Sophomore QB', 'Captain of a 7-0 offense'], ''],
+        [1, '#32 Ryan Stadtherr', ['Star player vs. La Jolla'], ''],
+        [1, '#65 Alex Obermiller', ['Veteran team star'], ''],
+        [2, 'Keys to the game', ['Keep pressuring the pocket', 'Don\'t let up', 'Don\'t break under pressure'], ''],
+        [2, '#15 Dreydon Garner', ['Career: avg 22.5 yds/reception'], ''],
+        [2, '#4 Nakee Jones Sr.', ['Career: avg 160 yds/game'], ''],
+        [2, '#42 Nalu Lee Jr.', ['State: 8th ranked kicker'], ''],
     ]
 }

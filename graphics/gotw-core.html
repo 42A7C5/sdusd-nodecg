@@ -80,7 +80,7 @@
 			width: 13vw;
 			position: fixed;
 			bottom: 2vw;
-			right: 2vw;
+			left: 2vw;
 			border-radius: 1vw;
 			text-align: center;
 			font-size: 3vw;
@@ -380,7 +380,7 @@
 				$('#lowerbox').hide(300);
 			} else {
 				if (window.game.lowers[keyNumber][0] == 1) {
-					$('#lowerbox').css('background', `linear-gradient(0deg, ${away.color.primary}, ${away.color.secondary})`);
+					$('#lowerbox').css('background', `linear-gradient(to right, ${away.color.primary}, ${away.color.secondary})`);
 					$('#lowerbox-logo').attr('src', `./teams/${away.id}.png`);
 					$('#lowerbox-logo').show();
 
@@ -406,7 +406,7 @@
 			}
 		});
 
-		$('#infobox-away').css('background', `linear-gradient(0deg, ${away.color.primary}, ${away.color.secondary})`);
+		$('#infobox-away').css('background', `linear-gradient(to right, ${away.color.primary}, ${away.color.secondary})`);
 		$('#infobox-away').css('border', `0.4vw solid ${away.color.secondary}`);
 		$('#infobox-away-logo').attr('src', `./teams/${away.id}.png`);
 		$('#infobox-away-school').text(away.name);
