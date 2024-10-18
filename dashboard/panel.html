@@ -147,13 +147,13 @@
 		document.querySelector('.button-show-matchup').addEventListener('click', () => {
 			nodecg.sendMessage('visible-matchup', true)
 			nodecg.sendMessage('visible-anchors', false)
-			nodecg.sendMessage('visible-keys', false)
+			nodecg.sendMessage('visible-keys', -1)
 			nodecg.sendMessage('visible-score', false)
 		})
 
 		document.querySelector('.button-show-slate').addEventListener('click', () => {
 			nodecg.sendMessage('visible-score', false)
-			nodecg.sendMessage('visible-keys', false)
+			nodecg.sendMessage('visible-keys', -1)
 			nodecg.sendMessage('visible-matchup-slate', true)
 			nodecg.sendMessage('visible-matchup', true)
 			nodecg.sendMessage('visible-anchors', false)
@@ -193,7 +193,7 @@
 			nodecg.sendMessage('visible-anchors', true)
 			nodecg.sendMessage('visible-matchup-slate', false)
 			nodecg.sendMessage('visible-matchup', false)
-			nodecg.sendMessage('visible-keys', false)
+			nodecg.sendMessage('visible-keys', -1)
 		})
 
 		document.querySelector('.button-hide-anchors').addEventListener('click', () => {
