@@ -234,6 +234,47 @@
 			text-align: right;
 		}
 
+		#interview-wrap {
+			position: absolute;
+			top: 40vw;
+			width: 100%;
+			height: 30%;
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			justify-content: center;
+		}
+
+		#interview-lt {
+			position: relative;
+			background-color: #0a233f;
+			width: 30vw;
+			height: 6vw;
+			padding-left: 2vw;
+			padding-right: 2vw;
+			padding-top: 1vw;
+			padding-bottom: 1vw;
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			align-items: center;
+			border-radius: 1vw;
+			color: white;
+		}
+
+		#interview-name {
+			font-size: 3.2vw;
+			display: block;
+			font-weight: 700;
+		}
+
+		#interview-title {
+			font-size: 2.4vw;
+			display: block;
+			font-weight: 500;
+			text-align: right;
+		}
+
 		/* Slate/bg */
 		#slate {
 			position: absolute;
@@ -291,6 +332,16 @@
 			<span id="anchor-a"></span>
 			<img src="sdusd.svg" id="anchors-median" style="width:10vw;">
 			<span id="anchor-b"></span>
+		</div>
+	</div>
+
+	<div id="interview-wrap">
+		<div id="interview-lt" style="display: none">
+			<img src="sdusd.svg" id="interview-median" style="width:10vw;">
+			<span>
+				<span id="interview-name">Samuel Sharp</span>
+				<span id="interview-title">#1 MTS glazer</span>
+			</span>
 		</div>
 	</div>
 
@@ -452,6 +503,8 @@
 
 		$('#anchor-a').text(window.game.anchorA);
 		$('#anchor-b').text(window.game.anchorB);
+		$('#interview-name').text(window.game.interviewName);
+		$('#interview-title').text(window.game.interviewTitle);
 
 		nodecg.listenFor('visible-anchors', isVisible => {
 			if (isVisible) {
@@ -463,6 +516,23 @@
 			} else {
 				$('#anchors-lt').fadeOut(200, () => {
 					$('#anchors-median').css({
+						transition: 'transform 0s',
+						transform: 'rotate(0deg)'
+					});
+				});
+			}
+		});
+
+		nodecg.listenFor('visible-interview', isVisible => {
+			if (isVisible) {
+				$('#interview-lt').fadeIn(200);
+				$('#interview-median').css({
+					transition: 'transform 2s',
+					transform: 'rotate(360deg)'
+				});
+			} else {
+				$('#interview-lt').fadeOut(200, () => {
+					$('#interview-median').css({
 						transition: 'transform 0s',
 						transform: 'rotate(0deg)'
 					});

@@ -56,6 +56,9 @@
 		<button class="button-show-anchors">Show Anchors</button>
 		<button class="button-hide-anchors">Hide Anchors</button>
 		<br /><br />
+		<button class="button-show-interview">Show Interview</button>
+		<button class="button-hide-interview">Hide Interview</button>
+		<br /><br />
 		<button class="button-show-keys-0">Game Keys Away</button>
 		<button class="button-show-keys-1">Key Player 1</button>
 		<button class="button-show-keys-2">Key Player 2</button>
@@ -73,7 +76,6 @@
 		<button class="button-hide-matchup">Hide Matchup</button>
 	</div>
 	<script>
-		// Matchup graphic
 		document.querySelector('.button-show-score').addEventListener('click', () => {
 			nodecg.sendMessage('visible-score', true)
 			nodecg.sendMessage('visible-matchup', false)
@@ -164,7 +166,6 @@
 			nodecg.sendMessage('visible-matchup', false)
 		})
 
-		// Score graphic
 		const awayScore = nodecg.Replicant('away-score', {
 			defaultValue: 0
 		})
@@ -188,9 +189,17 @@
 			homeScore.value = document.querySelector('#home-score').value
 		})
 
-		// Lower third (anchors) graphic
 		document.querySelector('.button-show-anchors').addEventListener('click', () => {
 			nodecg.sendMessage('visible-anchors', true)
+			nodecg.sendMessage('visible-interview', false)
+			nodecg.sendMessage('visible-matchup-slate', false)
+			nodecg.sendMessage('visible-matchup', false)
+			nodecg.sendMessage('visible-keys', -1)
+		})
+
+		document.querySelector('.button-show-interview').addEventListener('click', () => {
+			nodecg.sendMessage('visible-interview', true)
+			nodecg.sendMessage('visible-anchors', false)
 			nodecg.sendMessage('visible-matchup-slate', false)
 			nodecg.sendMessage('visible-matchup', false)
 			nodecg.sendMessage('visible-keys', -1)
@@ -198,6 +207,10 @@
 
 		document.querySelector('.button-hide-anchors').addEventListener('click', () => {
 			nodecg.sendMessage('visible-anchors', false)
+		})
+
+		document.querySelector('.button-hide-interview').addEventListener('click', () => {
+			nodecg.sendMessage('visible-interview', false)
 		})
 	</script>
 </body>

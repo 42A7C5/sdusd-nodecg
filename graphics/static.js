@@ -70,22 +70,42 @@ window.schools = {
             primary: '#4F81BD',
             secondary: '#222c6a'
         }
-    }
+    },
+    'MISB': {
+        id: 'MISB',
+        name: 'Mission Bay',
+        team: 'Buccaneers',
+        color: {
+            primary: '#000000',
+            secondary: '#F9E300'
+        }
+    },
+    'MIRM': {
+        id: 'MIRM',
+        name: 'Mira Mesa',
+        team: 'Marauders',
+        color: {
+            primary: '#0000FF',
+            secondary: '#F99C24'
+        }
+    },
 }
 
 window.game = {
-    away: 'SCRA',
-    home: 'UNCI',
-    anchorA: 'Levi Johnson',
-    anchorB: 'Ethan Ramirez',
+    away: 'MIRM',
+    home: 'MISB',
+    anchorA: 'Hillel Jacobs',
+    anchorB: 'Kennedy Murphy',
+    interviewName: 'Scott Giusti',
+    interviewTitle: 'SDUSD Athletics',
     lowers: [
-        [1, 'Keys to the game', ['Keep offense humming', 'Keep rushing on lock', 'Hold the line'], ''],
-        [1, '#2 Parker Armstrong', ['Sophomore QB', 'Captain of a 7-0 offense'], ''],
-        [1, '#32 Ryan Stadtherr', ['Star player vs. La Jolla'], ''],
-        [1, '#65 Alex Obermiller', ['Veteran team star'], ''],
-        [2, 'Keys to the game', ['Keep pressuring the pocket', 'Don\'t let up', 'Don\'t break under pressure'], ''],
-        [2, '#15 Dreydon Garner', ['Career: avg 22.5 yds/reception'], ''],
-        [2, '#4 Nakee Jones Sr.', ['Career: avg 160 yds/game'], ''],
-        [2, '#42 Nalu Lee Jr.', ['State: 8th ranked kicker'], ''],
+        [1, 'Keys to the game', ['---TBD---'], ''],
+        [1, '#- TBD TBD', ['---TBD---'], 'players/TAG.JPG'],
+        [1, '#- TBD TBD', ['---TBD---'], 'players/LAI.JPG'],
+        [1, '#- TBD TBD', ['---TBD---'], 'players/CHI.JPG'],
+        [2, 'Keys to the game', ['---TBD---'], ''],
+        [2, '#- TBD TBD', ['---TBD---'], 'players/MB5.jpg'],
+        [2, '#- TBD TBD', ['---TBD---'], 'players/MB8.jpg'],
+        [2, '#- TBD TBD', ['---TBD---'], 'players/MB18.jpg'],
     ]
 }
