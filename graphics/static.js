@@ -77,7 +77,7 @@ window.schools = {
         team: 'Buccaneers',
         color: {
             primary: '#000000',
-            secondary: '#F9E300'
+            secondary: '#827701'
         }
     },
     'MIRM': {
@@ -100,9 +100,9 @@ window.game = {
     interviewTitle: 'SDUSD Athletics',
     lowers: [
         [1, 'Keys to the game', ['---TBD---'], ''],
-        [1, '#- TBD TBD', ['---TBD---'], 'players/TAG.JPG'],
-        [1, '#- TBD TBD', ['---TBD---'], 'players/LAI.JPG'],
-        [1, '#- TBD TBD', ['---TBD---'], 'players/CHI.JPG'],
+        [1, '#- TBD TBD', ['---TBD---'], 'players/TAG.png'],
+        [1, '#- TBD TBD', ['---TBD---'], 'players/LAI.png'],
+        [1, '#- TBD TBD', ['---TBD---'], 'players/CHI.png'],
         [2, 'Keys to the game', ['---TBD---'], ''],
         [2, '#- TBD TBD', ['---TBD---'], 'players/MB5.jpg'],
         [2, '#- TBD TBD', ['---TBD---'], 'players/MB8.jpg'],

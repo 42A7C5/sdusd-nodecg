@@ -121,8 +121,8 @@
 		}
 
 		#lowerbox-pfp {
-			width: 10vw;
-			padding-bottom: 1vw;
+			width: 13vw;
+			padding-bottom: 0.2vw;
 			height: auto;
 			display: block;
 		}
@@ -431,12 +431,12 @@
 				$('#lowerbox').hide(300);
 			} else {
 				if (window.game.lowers[keyNumber][0] == 1) {
-					$('#lowerbox').css('background', `linear-gradient(to right, ${away.color.primary}, ${away.color.secondary})`);
+					$('#lowerbox').css('background', `linear-gradient(45deg, ${away.color.primary}, ${away.color.secondary})`);
 					$('#lowerbox-logo').attr('src', `./teams/${away.id}.png`);
 					$('#lowerbox-logo').show();
 
 				} else if (window.game.lowers[keyNumber][0] == 2) {
-					$('#lowerbox').css('background', `linear-gradient(to right, ${home.color.primary}, ${home.color.secondary})`);
+					$('#lowerbox').css('background', `linear-gradient(45deg, ${home.color.primary}, ${home.color.secondary})`);
 					$('#lowerbox-logo').attr('src', `./teams/${home.id}.png`);
 					$('#lowerbox-logo').show();
 				} else {
