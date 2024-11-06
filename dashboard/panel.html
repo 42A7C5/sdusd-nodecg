@@ -48,6 +48,9 @@
 		<button class="button-qt-2">Q2</button>
 		<button class="button-qt-3">Q3</button>
 		<button class="button-qt-4">Q4</button>
+		<button class="button-p-1">P1</button>
+		<button class="button-p-2">P2</button>
+		<button class="button-p-ot">OT</button>
 		<br /><br />
 		<hr /><br />
 		<button class="button-show-score">Show Score</button>
@@ -183,6 +186,10 @@
 		document.querySelector('.button-qt-2').addEventListener('click', () => { qtrRef.value = "Q2" })
 		document.querySelector('.button-qt-3').addEventListener('click', () => { qtrRef.value = "Q3" })
 		document.querySelector('.button-qt-4').addEventListener('click', () => { qtrRef.value = "Q4" })
+
+		document.querySelector('.button-p-1').addEventListener('click', () => { qtrRef.value = "P1" })
+		document.querySelector('.button-p-2').addEventListener('click', () => { qtrRef.value = "P2" })
+		document.querySelector('.button-p-ot').addEventListener('click', () => { qtrRef.value = "OT" })
 
 		document.querySelector('#button-save-score').addEventListener('click', () => {
 			awayScore.value = document.querySelector('#away-score').value
