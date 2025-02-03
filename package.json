@@ -17,12 +17,62 @@
   ],
   "nodecg": {
     "compatibleRange": "^2.0.0",
+    "assetCategories": [
+      {
+        "name": "logos",
+        "title": "Team Logos",
+        "allowedTypes": [
+          "png"
+        ]
+      },
+      {
+        "name": "slates",
+        "title": "Slate",
+        "allowedTypes": [
+          "png",
+          "jpg"
+        ]
+      }
+    ],
     "dashboardPanels": [
       {
-        "name": "panel",
-        "title": "SDUSD GOTW",
-        "file": "panel.html",
+        "name": "home",
+        "title": "✦ Home",
+        "file": "home.html",
         "fullbleed": true
+      },
+      {
+        "name": "act1",
+        "title": "Act 1",
+        "file": "act1.html",
+        "fullbleed": true
+      },
+      {
+        "name": "act2",
+        "title": "Act 2",
+        "file": "act2.html",
+        "fullbleed": true
+      },
+      {
+        "name": "act3",
+        "title": "Act 3",
+        "file": "act3.html",
+        "fullbleed": true
+      },
+      {
+        "name": "config",
+        "title": "Configuration",
+        "file": "config.html",
+        "fullbleed": true
+      }
+    ],
+    "soundCues": [
+      {
+        "name": "bg-music",
+        "channels": 1,
+        "defaultVolume": 80,
+        "assignable": false,
+        "defaultFile": "sound/music.mp3"
       }
     ],
     "graphics": [

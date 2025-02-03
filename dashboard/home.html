@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<link rel="stylesheet" href="panel.css">
+	<style>
+		body {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 85vh;
+			overflow-y: hidden;
+		}
+
+		body div {
+			text-align: center;
+		}
+
+		h1 {
+			font-size: 1.3rem;
+		}
+	</style>
+</head>
+
+<body>
+	<div>
+		<h1>San Diego Unified's<br />Game of the Week</h1>
+		<br /><br />
+		<h2>Ed-isms</h2>
+		<span>"<span id="quote"></span>" - <i id="attrib">Edward Waller</i></span>
+	</div>	
+	<script>
+		let quotes = [
+			"I feel like Jesus would be a pretty cool dude.<br />I feel like he'd be a streamer.",
+			"This hat does NOT look like a poop emoji!",
+			"I feel like every road should be like. five lanes. At least.",
+			"Eight lane highways are the American Dream actually.",
+			"The Supreme Court should just make real decisions and<br />decide who's better: LeBron or Michael Jordan?",
+			"I'm like Plato, I can't just make things up on the spot.<br />They need to come to me. Naturally.",
+			"Everyone can be a great philosopher. Like Kanye.",
+			"I should run for president. I would win but not because I\'m qualified.<br />What if I just lied to win?",
+			"Effort equals time which equals money. Stop trying.",
+			"Ever thought the green M&M is a lesbian?<br />Doesn't stop me from thinking she's hot.",
+			"Like teachers have never done cocaine?",
+			"I can't come up with Ed-isms, they have to come inside me naturally.<br />They have to flow out.",
+			"If I was Captain America, I would be the best athlete to grace this world.",
+			"You know, society evolves, not devolves.",
+			"I would be the Shakespeare of 1200s England.",
+			"\"Oh my gosh I'm dying\" like anyone cares bro",
+			"If Billie Eilish was given an .808, she would use it.",
+			"Why drink on the bus when you can drink and drive?",
+			"You don't make 100% of the shots every time.",
+			"No smoking? Lame.",
+			"I trust your vision. I\'m just saying I could do it better.",
+			"What you\'re doing right now is JUST like the CIA staging 9/11.",
+			"I CAN\'T READ!!!!!",
+			"If you jump off the second story, you\'ll live. Unfortunate.",
+			"Have you ever eaten a fruitcake?",
+			"I\'m totally going to be the next Kanye.",
+			"School lunch is like the Boston Tea Party. Death or the Sandi Coast Cafe.",
+			"I am GOING to take pictures of your feet.",
+			"God may have created the earth in six days,<br />but that was before labor unions"
+		]
+
+		let attribs = [
+			'Edward Waller',
+			'Edward Waller',
+			'Edward Waller',
+			'Edward Waller',
+			'Edward Waller',
+			'Edward Waller',
+			'Edward Waller',
+			'Edward Waller',
+			'Edward Waller',
+			'Edward Waller',
+			'Edward Waller',
+			'Edward Waller',
+			'Edward Waller',
+			'Edward Waller',
+			'Edward Waller',
+			'Edward Waller',
+			'Edward Waller',
+			'Edward Waller',
+			'Edward Waller',
+			'Edward Waller',
+			'Edward Waller',
+			'Edward Waller',
+			'Edward Waller',
+			'Edward Waller',
+			'Edward Waller',
+			'Edward Waller',
+			'Edward Waller',
+			'Edward Waller',
+			'Harry S. Truman',
+		]
+
+		let quote = document.getElementById('quote');
+		let attrib = document.getElementById('attrib');
+		let randomQuote = Math.floor(Math.random() * quotes.length);
+		quote.innerHTML = quotes[randomQuote];
+		attrib.innerHTML = attribs[randomQuote];
+	</script>
+</body>
+
+</html>

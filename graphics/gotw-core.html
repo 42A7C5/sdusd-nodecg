@@ -17,14 +17,14 @@
 		}
 
 		/* Scoreboard */
-		#scorebox {
+		#scoreboard {
 			position: fixed;
 			top: 2vw;
 			left: 2vw;
 		}
 
-		#scorebox-away,
-		#scorebox-home {
+		#scoreboard-away,
+		#scoreboard-home {
 			position: relative;
 			background-color: black;
 			width: 8vw;
@@ -38,26 +38,26 @@
 			color: white;
 		}
 
-		#scorebox-away {
+		#scoreboard-away {
 			position: relative;
 			margin-bottom: 0.5vw;
 		}
 
-		#scorebox-away-logo,
-		#scorebox-home-logo {
+		#scoreboard-away-logo,
+		#scoreboard-home-logo {
 			width: 3.0vw;
 			height: 3.0vw;
 			z-index: 999;
 		}
 
-		#scorebox-away-score,
-		#scorebox-home-score {
+		#scoreboard-away-score,
+		#scoreboard-home-score {
 			font-size: 3.2vw;
 			display: block;
 			font-weight: 700;
 		}
 
-		#scorebox-addl {
+		#scoreboard-addl {
 			background-color: #0a233f;
 			display: inline-block;
 			color: white;
@@ -125,6 +125,7 @@
 			padding-bottom: 0.2vw;
 			height: auto;
 			display: block;
+			border-radius: 100%;
 		}
 
 		/* Matchup boxes (infoboxes) */
@@ -248,7 +249,7 @@
 		#interview-lt {
 			position: relative;
 			background-color: #0a233f;
-			width: 30vw;
+			width: 40vw;
 			height: 6vw;
 			padding-left: 2vw;
 			padding-right: 2vw;
@@ -293,17 +294,17 @@
 
 <body>
 	<!-- Scoreboard -->
-	<div id="scorebox" style="display: none">
-		<span id="scorebox-away">
-			<img src="" id="scorebox-away-logo">
-			<span id="scorebox-away-score">00</span>
+	<div id="scoreboard" style="display: none">
+		<span id="scoreboard-away">
+			<img src="" id="scoreboard-away-logo">
+			<span id="scoreboard-away-score">00</span>
 		</span>
-		<span id="scorebox-home">
-			<img src="" id="scorebox-home-logo">
-			<span id="scorebox-home-score">00</span>
+		<span id="scoreboard-home">
+			<img src="" id="scoreboard-home-logo">
+			<span id="scoreboard-home-score">00</span>
 		</span>
-		<span id="scorebox-addl">
-			<span id="scorebox-qtr">Q1</span>
+		<span id="scoreboard-addl">
+			<span id="scoreboard-qtr">Q1</span>
 		</span>
 	</div>
 
@@ -339,32 +340,28 @@
 		<div id="interview-lt" style="display: none">
 			<img src="sdusd.svg" id="interview-median" style="width:10vw;">
 			<span>
-				<span id="interview-name">Samuel Sharp</span>
-				<span id="interview-title">#1 MTS glazer</span>
+				<span id="interview-name"></span>
+				<span id="interview-title"></span>
 			</span>
 		</div>
 	</div>
 
 	<span id="slate-overlay" style="display: none">
-		<span id="slate-clock">00:00 PM</span>
+		<span id="slate-clock">--:-- --</span>
 	</span>
 
 	<!-- Lowerbox -->
 	<span id="lowerbox" style="display: none">
 		<img src="" id="lowerbox-pfp">
 		<img src="" id="lowerbox-logo">
-		<span id="lowerbox-title">Keys to the game</span>
-		<span id="lowerbox-content">
-			> Lorem ipsum dolor sit amet
-			<br />
-			> Consectetur adipiscing elit
-			<br />
-			> Sed do eiusmod tempor incididunt
-		</span>
+		<span id="lowerbox-title"></span>
+		<span id="lowerbox-content"></span>
 	</span>
 
 	<!-- Slate/bg -->
-	<img src="slate.jpg" id="slate">
+	<div style="width: 100vw;height: 100vh;background-color: #06121f;display: flex;justify-content: center;align-items: center;" src="" id="slate">
+		<img src="sdusd.svg" style="padding-top: 5vw;" alt="">	
+	</div>
 	<script>
 		const qtrRef = nodecg.Replicant('qtr', {
 			defaultValue: "QX"
@@ -377,22 +374,12 @@
 			}))
 		}, 1000);
 
-		let away = window.schools[window.game.away]
-		$('#scorebox-away').css('background', away.color.primary);
-		$('#scorebox-away').css('border', `0.4vw solid ${away.color.secondary}`);
-		$('#scorebox-away-logo').attr('src', `./teams/${away.id}.png`);
-
-		let home = window.schools[window.game.home]
-		$('#scorebox-home').css('background', home.color.primary);
-		$('#scorebox-home').css('border', `0.4vw solid ${home.color.secondary}`);
-		$('#scorebox-home-logo').attr('src', `./teams/${home.id}.png`);
-
 		qtrRef.on('change', (newQtrRef, oldQtrRef) => {
 			if (newQtrRef == 'QX') {
-				$('#scorebox-addl').fadeOut(250)
+				$('#scoreboard-addl').fadeOut(250)
 			} else {
-				$('#scorebox-qtr').text(newQtrRef)
-				$('#scorebox-addl').fadeIn(250)
+				$('#scoreboard-qtr').text(newQtrRef)
+				$('#scoreboard-addl').fadeIn(250)
 			}
 		})
 
@@ -405,39 +392,79 @@
 		})
 
 		awayScore.on('change', (newAwayScore, oldAwayScore) => {
-			$('#scorebox-away-score').fadeOut(250, () => {
-				$('#scorebox-away-score').text(newAwayScore.toString().padStart(2, '0'))
-				$('#scorebox-away-score').fadeIn(250)
+			$('#scoreboard-away-score').fadeOut(250, () => {
+				$('#scoreboard-away-score').text(newAwayScore.toString().padStart(2, '0'))
+				$('#scoreboard-away-score').fadeIn(250)
 			})
 		})
 
 		homeScore.on('change', (newHomeScore, oldHomeScore) => {
-			$('#scorebox-home-score').fadeOut(250, () => {
-				$('#scorebox-home-score').text(newHomeScore.toString().padStart(2, '0'))
-				$('#scorebox-home-score').fadeIn(250)
+			$('#scoreboard-home-score').fadeOut(250, () => {
+				$('#scoreboard-home-score').text(newHomeScore.toString().padStart(2, '0'))
+				$('#scoreboard-home-score').fadeIn(250)
 			})
 		})
 
 		nodecg.listenFor('visible-score', isVisible => {
 			if (isVisible) {
-				$('#scorebox').fadeIn(200);
+				$('#scoreboard').fadeIn(200);
 			} else {
-				$('#scorebox').fadeOut(200);
+				$('#scoreboard').fadeOut(200);
 			}
 		});
+
+		const awaySchool = nodecg.Replicant('away-school', {
+			defaultValue: 'Covina Canyons'
+		})
+
+		const awayTeam = nodecg.Replicant('away-team', {
+			defaultValue: 'Trolls'
+		})
+
+		const awayLogo = nodecg.Replicant('away-logo', {
+			defaultValue: 'ICON.png'
+		})
+
+		const awayColorPrimary = nodecg.Replicant('away-color-primary', {
+			defaultValue: '#000000'
+		})
+
+		const awayColorSecondary = nodecg.Replicant('away-color-secondary', {
+			defaultValue: '#FFFFFF'
+		})
+
+		const homeSchool = nodecg.Replicant('home-school', {
+			defaultValue: 'San Diego'
+		})
+
+		const homeTeam = nodecg.Replicant('home-team', {
+			defaultValue: 'Cavers'
+		})
+
+		const homeLogo = nodecg.Replicant('home-logo', {
+			defaultValue: 'ICON.png'
+		})
+
+		const homeColorPrimary = nodecg.Replicant('home-color-primary', {
+			defaultValue: '#000000'
+		})
+
+		const homeColorSecondary = nodecg.Replicant('home-color-secondary', {
+			defaultValue: '#FFFFFF'
+		})
 
 		nodecg.listenFor('visible-keys', keyNumber => {
 			if (keyNumber == -1) {
 				$('#lowerbox').hide(300);
 			} else {
 				if (window.game.lowers[keyNumber][0] == 1) {
-					$('#lowerbox').css('background', `linear-gradient(45deg, ${away.color.primary}, ${away.color.secondary})`);
-					$('#lowerbox-logo').attr('src', `./teams/${away.id}.png`);
+					$('#lowerbox').css('background', `linear-gradient(45deg, ${awayColorPrimary.value}, ${awayColorSecondary.value})`);
+					$('#lowerbox-logo').attr('src', '/assets/sdusd-gotw/logos/' + awayLogo.value);
 					$('#lowerbox-logo').show();
 
 				} else if (window.game.lowers[keyNumber][0] == 2) {
-					$('#lowerbox').css('background', `linear-gradient(45deg, ${home.color.primary}, ${home.color.secondary})`);
-					$('#lowerbox-logo').attr('src', `./teams/${home.id}.png`);
+					$('#lowerbox').css('background', `linear-gradient(45deg, ${homeColorPrimary.value}, ${homeColorSecondary.value})`);
+					$('#lowerbox-logo').attr('src', '/assets/sdusd-gotw/logos/' + homeLogo.value);
 					$('#lowerbox-logo').show();
 				} else {
 					$('#lowerbox').css('background', `#0a233f`);
@@ -457,17 +484,53 @@
 			}
 		});
 
-		$('#infobox-away').css('background', `linear-gradient(to right, ${away.color.primary}, ${away.color.secondary})`);
-		$('#infobox-away').css('border', `0.4vw solid ${away.color.secondary}`);
-		$('#infobox-away-logo').attr('src', `./teams/${away.id}.png`);
-		$('#infobox-away-school').text(away.name);
-		$('#infobox-away-team').text(away.team);
+		awaySchool.on('change', newValue => {
+			$('#infobox-away-school').text(newValue)
+		})
 
-		$('#infobox-home').css('background', `linear-gradient(to right, ${home.color.primary}, ${home.color.secondary})`);
-		$('#infobox-home').css('border', `0.4vw solid ${home.color.secondary}`);
-		$('#infobox-home-logo').attr('src', `./teams/${home.id}.png`);
-		$('#infobox-home-school').text(home.name);
-		$('#infobox-home-team').text(home.team);
+		awayTeam.on('change', newValue => {
+			$('#infobox-away-team').text(newValue)
+		})
+
+		awayLogo.on('change', newValue => {
+			$('#infobox-away-logo').attr('src', '/assets/sdusd-gotw/logos/' + newValue)
+			$('#scoreboard-away-logo').attr('src', '/assets/sdusd-gotw/logos/' + newValue)
+		})
+
+		awayColorPrimary.on('change', newValue => {
+			$('#infobox-away').css('background', `linear-gradient(to right, ${newValue}, ${awayColorSecondary.value}`)
+			$('#scoreboard-away').css('background', newValue)
+		})
+
+		awayColorSecondary.on('change', newValue => {
+			$('#infobox-away').css('background', `linear-gradient(to right, ${awayColorPrimary.value}, ${newValue}`)
+			$('#infobox-away').css('border', `0.4vw solid ${newValue}`);
+			$('#scoreboard-away').css('border', `0.4vw solid ${newValue}`);
+		})
+
+		homeSchool.on('change', newValue => {
+			$('#infobox-home-school').text(newValue)
+		})
+
+		homeTeam.on('change', newValue => {
+			$('#infobox-home-team').text(newValue)
+		})
+
+		homeLogo.on('change', newValue => {
+			$('#infobox-home-logo').attr('src', '/assets/sdusd-gotw/logos/' + newValue)
+			$('#scoreboard-home-logo').attr('src', '/assets/sdusd-gotw/logos/' + newValue)
+		})
+
+		homeColorPrimary.on('change', newValue => {
+			$('#infobox-home').css('background', `linear-gradient(to right, ${newValue}, ${homeColorSecondary.value}`)	
+			$('#scoreboard-home').css('background', newValue)
+		})
+
+		homeColorSecondary.on('change', newValue => {
+			$('#infobox-home').css('background', `linear-gradient(to right, ${homeColorPrimary.value}, ${newValue}`)
+			$('#infobox-home').css('border', `0.4vw solid ${newValue}`)
+			$('#scoreboard-home').css('border', `0.4vw solid ${newValue}`)
+		})
 
 		nodecg.listenFor('visible-matchup', isVisible => {
 			if (isVisible) {
@@ -493,18 +556,56 @@
 
 		nodecg.listenFor('visible-matchup-slate', isVisible => {
 			if (isVisible) {
+				// nodecg.stopSound('bg-music');
+				// nodecg.playSound('bg-music');
 				$('#slate').fadeIn(300);
 				$('#slate-overlay').fadeIn(300);
 			} else {
+				// nodecg.stopSound('bg-music');
 				$('#slate').fadeOut(300);
 				$('#slate-overlay').fadeOut(300);
 			}
 		});
 
-		$('#anchor-a').text(window.game.anchorA);
-		$('#anchor-b').text(window.game.anchorB);
-		$('#interview-name').text(window.game.interviewName);
-		$('#interview-title').text(window.game.interviewTitle);
+		const anchorA = nodecg.Replicant('anchor-a', {
+			defaultValue: 'Samuel Sharp'
+		})
+
+		const anchorB = nodecg.Replicant('anchor-b', {
+			defaultValue: 'Metro C Line'
+		})
+
+		const interviewName = nodecg.Replicant('interview-name', {
+			defaultValue: 'Levi Johnson'
+		})
+
+		const interviewTitle = nodecg.Replicant('interview-title', {
+			defaultValue: 'Very small man'
+		})
+
+		anchorA.on('change', newValue => {
+			$('#anchor-a').text(newValue)
+		})
+
+		anchorB.on('change', newValue => {
+			$('#anchor-b').text(newValue)
+		})
+
+		interviewName.on('change', newValue => {
+			$('#interview-name').text(newValue)
+		})
+
+		interviewTitle.on('change', newValue => {
+			$('#interview-title').text(newValue)
+		})
+
+		// const slateAsset = nodecg.Replicant('slate-asset', {
+			// defaultValue: 'Downtown1.jpg'
+		// })
+
+		// slateAsset.on('change', newValue => {
+			// $('#slate').attr('src', '/assets/sdusd-gotw/slates/' + newValue)
+		// })
 
 		nodecg.listenFor('visible-anchors', isVisible => {
 			if (isVisible) {

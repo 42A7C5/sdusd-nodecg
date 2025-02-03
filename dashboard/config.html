@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<link rel="stylesheet" href="panel.css">
+</head>
+
+<body>
+	<div>
+		<p>Team Brands</p>
+		<input type="text" id="away-school" placeholder="Away School" />
+		<input type="text" id="home-school" placeholder="Home School" />
+		<br />
+		<input type="text" id="away-team" placeholder="Away Team" />
+		<input type="text" id="home-team" placeholder="Home Team" />
+		<br />
+		<input type="text" id="away-logo" placeholder="Away Logo" />
+		<input type="text" id="home-logo" placeholder="Home Logo" />
+		<br />
+		<input type="text" id="away-color-primary" placeholder="Away Primary Color" />
+		<input type="text" id="home-color-primary" placeholder="Home Primary Color" />
+		<br />
+		<input type="text" id="away-color-secondary" placeholder="Away Secondary Color" />
+		<input type="text" id="home-color-secondary" placeholder="Home Secondary Color" />
+
+		<p>Act 1/3 Lower Thirds</p>
+		<input type="text" id="anchor-a" placeholder="Anchor A" />
+		<input type="text" id="anchor-b" placeholder="Anchor B" />
+		<br />
+		<input type="text" id="interview-name" placeholder="Interview Name" />
+		<input type="text" id="interview-title" placeholder="Interview Title" />
+
+		<p>Slate</p>
+		<input type="text" id="slate-asset" placeholder="Slate Background" />
+	</div>
+	<script>
+		const awaySchool = nodecg.Replicant('away-school', {
+			defaultValue: 'Covina Canyons'
+		})
+
+		const awayTeam = nodecg.Replicant('away-team', {
+			defaultValue: 'Trolls'
+		})
+
+		const awayLogo = nodecg.Replicant('away-logo', {
+			defaultValue: 'ICON.png'
+		})
+
+		const awayColorPrimary = nodecg.Replicant('away-color-primary', {
+			defaultValue: '#000000'
+		})
+
+		const awayColorSecondary = nodecg.Replicant('away-color-secondary', {
+			defaultValue: '#FFFFFF'
+		})
+
+		const homeSchool = nodecg.Replicant('home-school', {
+			defaultValue: 'San Diego'
+		})
+
+		const homeTeam = nodecg.Replicant('home-team', {
+			defaultValue: 'Cavers'
+		})
+
+		const homeLogo = nodecg.Replicant('home-logo', {
+			defaultValue: 'ICON.png'
+		})
+
+		const homeColorPrimary = nodecg.Replicant('home-color-primary', {
+			defaultValue: '#000000'
+		})
+
+		const homeColorSecondary = nodecg.Replicant('home-color-secondary', {
+			defaultValue: '#FFFFFF'
+		})
+
+		const anchorA = nodecg.Replicant('anchor-a', {
+			defaultValue: 'Samuel Sharp'
+		})
+
+		const anchorB = nodecg.Replicant('anchor-b', {
+			defaultValue: 'Edward Waller'
+		})
+
+		const interviewName = nodecg.Replicant('interview-name', {
+			defaultValue: 'Levi Johnson'
+		})
+
+		const interviewTitle = nodecg.Replicant('interview-title', {
+			defaultValue: 'Very small man'
+		})
+
+		const slateAsset = nodecg.Replicant('slate-asset', {
+			defaultValue: 'Downtown1.jpg'
+		})
+
+		const awaySchoolInput = document.getElementById('away-school')
+		const awayTeamInput = document.getElementById('away-team')
+		const awayLogoInput = document.getElementById('away-logo')
+		const awayColorPrimaryInput = document.getElementById('away-color-primary')
+		const awayColorSecondaryInput = document.getElementById('away-color-secondary')
+
+		awaySchoolInput.addEventListener('change', () => {
+			awaySchool.value = awaySchoolInput.value
+		})
+
+		awayTeamInput.addEventListener('change', () => {
+			awayTeam.value = awayTeamInput.value
+		})
+
+		awayLogoInput.addEventListener('change', () => {
+			awayLogo.value = awayLogoInput.value
+		})
+
+		awayColorPrimaryInput.addEventListener('change', () => {
+			awayColorPrimary.value = awayColorPrimaryInput.value
+		})
+
+		awayColorSecondaryInput.addEventListener('change', () => {
+			awayColorSecondary.value = awayColorSecondaryInput.value
+		})
+
+		const homeSchoolInput = document.getElementById('home-school')
+		const homeTeamInput = document.getElementById('home-team')
+		const homeLogoInput = document.getElementById('home-logo')
+		const homeColorPrimaryInput = document.getElementById('home-color-primary')
+		const homeColorSecondaryInput = document.getElementById('home-color-secondary')
+
+		homeSchoolInput.addEventListener('change', () => {
+			homeSchool.value = homeSchoolInput.value
+		})
+
+		homeTeamInput.addEventListener('change', () => {
+			homeTeam.value = homeTeamInput.value
+		})
+
+		homeLogoInput.addEventListener('change', () => {
+			homeLogo.value = homeLogoInput.value
+		})
+
+		homeColorPrimaryInput.addEventListener('change', () => {
+			homeColorPrimary.value = homeColorPrimaryInput.value
+		})
+
+		homeColorSecondaryInput.addEventListener('change', () => {
+			homeColorSecondary.value = homeColorSecondaryInput.value
+		})
+
+		const anchorAInput = document.getElementById('anchor-a')
+		const anchorBInput = document.getElementById('anchor-b')
+		const interviewNameInput = document.getElementById('interview-name')
+		const interviewTitleInput = document.getElementById('interview-title')
+
+		anchorAInput.addEventListener('change', () => {
+			anchorA.value = anchorAInput.value
+		})
+
+		anchorBInput.addEventListener('change', () => {
+			anchorB.value = anchorBInput.value
+		})
+
+		interviewNameInput.addEventListener('change', () => {
+			interviewName.value = interviewNameInput.value
+		})
+
+		interviewTitleInput.addEventListener('change', () => {
+			interviewTitle.value = interviewTitleInput.value
+		})
+
+		const slateAssetInput = document.getElementById('slate-asset')
+
+		slateAssetInput.addEventListener('change', () => {
+			slateAsset.value = slateAssetInput.value
+		})
+	</script>
+</body>
+
+</html>
