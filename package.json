@@ -24,45 +24,25 @@
         "allowedTypes": [
           "png"
         ]
-      },
-      {
-        "name": "slates",
-        "title": "Slate",
-        "allowedTypes": [
-          "png",
-          "jpg"
-        ]
       }
     ],
     "dashboardPanels": [
       {
-        "name": "home",
-        "title": "✦ Home",
-        "file": "home.html",
-        "fullbleed": true
-      },
-      {
-        "name": "act1",
-        "title": "Act 1",
-        "file": "act1.html",
-        "fullbleed": true
-      },
-      {
-        "name": "act2",
-        "title": "Act 2",
-        "file": "act2.html",
-        "fullbleed": true
-      },
-      {
-        "name": "act3",
-        "title": "Act 3",
-        "file": "act3.html",
+        "name": "panel",
+        "title": "✦ Main Panel",
+        "file": "panel.html",
         "fullbleed": true
       },
       {
         "name": "config",
-        "title": "Configuration",
+        "title": "Setup",
         "file": "config.html",
+        "fullbleed": true
+      },
+      {
+        "name": "help",
+        "title": "Help",
+        "file": "help.html",
         "fullbleed": true
       }
     ],

@@ -87,12 +87,28 @@
 			font-weight: 500;
 		}
 
+		#replay-overlay {
+			background-color: #0a233f;
+			display: inline-block;
+			color: white;
+			padding: 0.5vw;
+			width: 15vw;
+			border-radius: 1vw;
+			text-align: center;
+			font-weight: 500;
+			border: 3px solid #FDB913;
+			font-size: 3.5vw;
+			position: fixed;
+			top: 2vw;
+			left: 2vw;
+		}
+
 		#lowerbox {
 			background: #0a233f;
 			display: inline-block;
 			color: white;
 			padding: 1.5vw;
-			width: 40vw;
+			width: 45vw;
 			position: fixed;
 			bottom: 2vw;
 			left: 2vw;
@@ -346,6 +362,10 @@
 		</div>
 	</div>
 
+	<span id="replay-overlay" style="display: none">
+		REPLAY
+	</span>
+
 	<span id="slate-overlay" style="display: none">
 		<span id="slate-clock">--:-- --</span>
 	</span>
@@ -410,6 +430,14 @@
 				$('#scoreboard').fadeIn(200);
 			} else {
 				$('#scoreboard').fadeOut(200);
+			}
+		});
+
+		nodecg.listenFor('visible-replay', isVisible => {
+			if (isVisible) {
+				$('#replay-overlay').fadeIn(200);
+			} else {
+				$('#replay-overlay').fadeOut(200);
 			}
 		});
 
@@ -542,6 +570,7 @@
 					left: '0vw',
 					opacity: 1,
 				}, 300);
+				$('#slate-overlay').fadeIn(300);
 			} else {
 				$('#infobox-away').animate({
 					left: '-5vw',
@@ -551,6 +580,7 @@
 					left: '5vw',
 					opacity: 0,
 				}, 300);
+				$('#slate-overlay').fadeOut(300);
 			}
 		});
 

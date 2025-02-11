@@ -6,6 +6,7 @@ if (document.querySelector('.button-hide')) {
         nodecg.sendMessage('visible-interview', false)
         nodecg.sendMessage('visible-keys', -1)
         nodecg.sendMessage('visible-matchup-slate', false)
+        nodecg.sendMessage('visible-replay', false)
     })
 }
 
@@ -16,8 +17,22 @@ if (document.querySelector('.button-show-score')) {
         nodecg.sendMessage('visible-interview', false)
         nodecg.sendMessage('visible-keys', -1)
         nodecg.sendMessage('visible-matchup-slate', false)
+        nodecg.sendMessage('visible-replay', false)
 
         nodecg.sendMessage('visible-score', true)
+    })
+}
+
+if (document.querySelector('.button-show-replay')) {
+    document.querySelector('.button-show-replay').addEventListener('click', () => {
+        nodecg.sendMessage('visible-score', false)
+        nodecg.sendMessage('visible-matchup', false)
+        nodecg.sendMessage('visible-anchors', false)
+        nodecg.sendMessage('visible-interview', false)
+        nodecg.sendMessage('visible-keys', -1)
+        nodecg.sendMessage('visible-matchup-slate', false)
+
+        nodecg.sendMessage('visible-replay', true)
     })
 }
 
@@ -28,6 +43,7 @@ if (document.querySelector('.button-show-matchup')) {
         nodecg.sendMessage('visible-interview', false)
         nodecg.sendMessage('visible-keys', -1)
         nodecg.sendMessage('visible-matchup-slate', false)
+        nodecg.sendMessage('visible-replay', false)
 
 
         nodecg.sendMessage('visible-matchup', true)
@@ -41,6 +57,7 @@ if (document.querySelector('.button-show-anchors')) {
         nodecg.sendMessage('visible-interview', false)
         nodecg.sendMessage('visible-keys', -1)
         nodecg.sendMessage('visible-matchup-slate', false)
+        nodecg.sendMessage('visible-replay', false)
 
         nodecg.sendMessage('visible-anchors', true)
     })
@@ -53,6 +70,7 @@ if (document.querySelector('.button-show-interview')) {
         nodecg.sendMessage('visible-anchors', false)
         nodecg.sendMessage('visible-keys', -1)
         nodecg.sendMessage('visible-matchup-slate', false)
+        nodecg.sendMessage('visible-replay', false)
 
         nodecg.sendMessage('visible-interview', true)
     })
@@ -64,6 +82,7 @@ if (document.querySelector('.button-show-slate')) {
         nodecg.sendMessage('visible-anchors', false)
         nodecg.sendMessage('visible-interview', false)
         nodecg.sendMessage('visible-keys', -1)
+        nodecg.sendMessage('visible-replay', false)
 
         nodecg.sendMessage('visible-matchup-slate', true)
         nodecg.sendMessage('visible-matchup', true)
@@ -79,6 +98,7 @@ if (document.querySelector('.button-show-keys-0')) {
         nodecg.sendMessage('visible-interview', false)
         nodecg.sendMessage('visible-matchup-slate', false)
         nodecg.sendMessage('visible-matchup', false)
+        nodecg.sendMessage('visible-replay', false)
     })
 
     document.querySelector('.button-show-keys-1').addEventListener('click', () => {
@@ -89,6 +109,7 @@ if (document.querySelector('.button-show-keys-0')) {
         nodecg.sendMessage('visible-interview', false)
         nodecg.sendMessage('visible-matchup-slate', false)
         nodecg.sendMessage('visible-matchup', false)
+        nodecg.sendMessage('visible-replay', false)
     })
 
     document.querySelector('.button-show-keys-2').addEventListener('click', () => {
@@ -99,6 +120,7 @@ if (document.querySelector('.button-show-keys-0')) {
         nodecg.sendMessage('visible-interview', false)
         nodecg.sendMessage('visible-matchup-slate', false)
         nodecg.sendMessage('visible-matchup', false)
+        nodecg.sendMessage('visible-replay', false)
     })
 
     document.querySelector('.button-show-keys-3').addEventListener('click', () => {
@@ -109,6 +131,7 @@ if (document.querySelector('.button-show-keys-0')) {
         nodecg.sendMessage('visible-interview', false)
         nodecg.sendMessage('visible-matchup-slate', false)
         nodecg.sendMessage('visible-matchup', false)
+        nodecg.sendMessage('visible-replay', false)
     })
 
     document.querySelector('.button-show-keys-4').addEventListener('click', () => {
@@ -119,6 +142,7 @@ if (document.querySelector('.button-show-keys-0')) {
         nodecg.sendMessage('visible-interview', false)
         nodecg.sendMessage('visible-matchup-slate', false)
         nodecg.sendMessage('visible-matchup', false)
+        nodecg.sendMessage('visible-replay', false)
     })
 
     document.querySelector('.button-show-keys-5').addEventListener('click', () => {
@@ -129,6 +153,7 @@ if (document.querySelector('.button-show-keys-0')) {
         nodecg.sendMessage('visible-interview', false)
         nodecg.sendMessage('visible-matchup-slate', false)
         nodecg.sendMessage('visible-matchup', false)
+        nodecg.sendMessage('visible-replay', false)
     })
 
     document.querySelector('.button-show-keys-6').addEventListener('click', () => {
@@ -139,6 +164,7 @@ if (document.querySelector('.button-show-keys-0')) {
         nodecg.sendMessage('visible-interview', false)
         nodecg.sendMessage('visible-matchup-slate', false)
         nodecg.sendMessage('visible-matchup', false)
+        nodecg.sendMessage('visible-replay', false)
     })
 
     document.querySelector('.button-show-keys-7').addEventListener('click', () => {
@@ -149,6 +175,7 @@ if (document.querySelector('.button-show-keys-0')) {
         nodecg.sendMessage('visible-interview', false)
         nodecg.sendMessage('visible-matchup-slate', false)
         nodecg.sendMessage('visible-matchup', false)
+        nodecg.sendMessage('visible-replay', false)
     })
 }
 

@@ -4,32 +4,52 @@
 <head>
 	<meta charset="UTF-8" />
 	<link rel="stylesheet" href="panel.css">
-	<style>
-		body {
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			height: 85vh;
-			overflow-y: hidden;
-		}
-
-		body div {
-			text-align: center;
-		}
-
-		h1 {
-			font-size: 1.3rem;
-		}
-	</style>
 </head>
 
 <body>
+	<button class="button-show-score" style="background-color:#0072BC;">Score</button>
+	<button class="button-show-replay" style="background-color:#F99C24;">Replay</button>
+	<button class="button-show-matchup" style="background-color:#43883F;">Matchup</button>
+	<button class="button-show-slate" style="background-color:#43883F;">Slate</button>
+	<button class="button-hide" style="background-color:#D11242;">Clear</button>
+	<br /><br />
+	<span>"<span id="quote"></span>" - <i id="attrib">Edward Waller</i></span>
+	<br />
+	<hr />
+	<input id="away-score" placeholder="Away Score">
+	<span style="padding-left:10px;padding-right:10px;">-</span>
+	<input id="home-score" placeholder="Home Score">
+	<button style="margin-left:10px;" id="button-save-score">SAVE</button>
+	<br /><br />
+	<button class="button-qt-x">PG</button>
+	<button class="button-qt-1">Q1</button>
+	<button class="button-qt-2">Q2</button>
+	<button class="button-qt-3">Q3</button>
+	<button class="button-qt-4">Q4</button>
+	<button class="button-p-1">P1</button>
+	<button class="button-p-2">P2</button>
+	<button class="button-p-ot">OT</button>
+	<br />
+	<hr />
+	<br />
 	<div>
-		<h1>San Diego Unified's<br />Game of the Week</h1>
-		<br /><br />
-		<h2>Ed-isms</h2>
-		<span>"<span id="quote"></span>" - <i id="attrib">Edward Waller</i></span>
-	</div>	
+		<button class="button-show-anchors">Anchors</button>
+		<button class="button-show-interview">Interview</button>
+		<br />
+		<button class="button-show-keys-0">Away Keys</button>
+		<button class="button-show-keys-1">Player 1</button>
+		<button class="button-show-keys-2">Player 2</button>
+		<button class="button-show-keys-3">Player 3</button>
+		<br />
+		<button class="button-show-keys-4">Home Keys</button>
+		<button class="button-show-keys-5">Player 4</button>
+		<button class="button-show-keys-6">Player 5</button>
+		<button class="button-show-keys-7">Player 6</button>
+		<br />
+	</div>
+
+	<script src="panel.js"></script>
+
 	<script>
 		let quotes = [
 			"I feel like Jesus would be a pretty cool dude.<br />I feel like he'd be a streamer.",
@@ -39,7 +59,7 @@
 			"The Supreme Court should just make real decisions and<br />decide who's better: LeBron or Michael Jordan?",
 			"I'm like Plato, I can't just make things up on the spot.<br />They need to come to me. Naturally.",
 			"Everyone can be a great philosopher. Like Kanye.",
-			"I should run for president. I would win but not because I\'m qualified.<br />What if I just lied to win?",
+			"I should run for president. I would win but not because I'm qualified.<br />What if I just lied to win?",
 			"Effort equals time which equals money. Stop trying.",
 			"Ever thought the green M&M is a lesbian?<br />Doesn't stop me from thinking she's hot.",
 			"Like teachers have never done cocaine?",
@@ -52,15 +72,16 @@
 			"Why drink on the bus when you can drink and drive?",
 			"You don't make 100% of the shots every time.",
 			"No smoking? Lame.",
-			"I trust your vision. I\'m just saying I could do it better.",
-			"What you\'re doing right now is JUST like the CIA staging 9/11.",
-			"I CAN\'T READ!!!!!",
+			"I trust your vision. I'm just saying I could do it better.",
+			"What you're doing right now is JUST like the CIA staging 9/11.",
+			"I CAN'T READ!!!!!",
 			"If you jump off the second story, you\'ll live. Unfortunate.",
 			"Have you ever eaten a fruitcake?",
-			"I\'m totally going to be the next Kanye.",
+			"I'm totally going to be the next Kanye.",
 			"School lunch is like the Boston Tea Party. Death or the Sandi Coast Cafe.",
 			"I am GOING to take pictures of your feet.",
-			"God may have created the earth in six days,<br />but that was before labor unions"
+			"God may have created the earth in six days,<br />but that was before labor unions",
+			"Why do Charli XCX's feet look like hands?"
 		]
 
 		let attribs = [
@@ -93,6 +114,7 @@
 			'Edward Waller',
 			'Edward Waller',
 			'Harry S. Truman',
+			'Mr. Williams'
 		]
 
 		let quote = document.getElementById('quote');
