@@ -46,15 +46,6 @@
         "fullbleed": true
       }
     ],
-    "soundCues": [
-      {
-        "name": "bg-music",
-        "channels": 1,
-        "defaultVolume": 80,
-        "assignable": false,
-        "defaultFile": "sound/music.mp3"
-      }
-    ],
     "graphics": [
       {
         "file": "gotw-core.html",

@@ -16,10 +16,17 @@
 	<span>"<span id="quote"></span>" - <i id="attrib">Edward Waller</i></span>
 	<br />
 	<hr />
-	<input id="away-score" placeholder="Away Score">
-	<span style="padding-left:10px;padding-right:10px;">-</span>
-	<input id="home-score" placeholder="Home Score">
-	<button style="margin-left:10px;" id="button-save-score">SAVE</button>
+	<input id="away-score" placeholder="Away">
+	<span> - </span>
+	<input id="home-score" placeholder="Home">
+	<br /><br />
+	<button class="button-away-p1">+1</button>
+	<button class="button-away-p2">+2</button>
+	<button class="button-away-p3">+3</button>
+	<span> - </span>
+	<button class="button-home-p1">+1</button>
+	<button class="button-home-p2">+2</button>
+	<button class="button-home-p3">+3</button>
 	<br /><br />
 	<button class="button-qt-x">PG</button>
 	<button class="button-qt-1">Q1</button>
@@ -68,7 +75,9 @@
 			"You know, society evolves, not devolves.",
 			"I would be the Shakespeare of 1200s England.",
 			"\"Oh my gosh I'm dying\" like anyone cares bro",
-			"If Billie Eilish was given an .808, she would use it.",
+			"If Billie Eilish was given an 808, she would use it.",
+			"If Mozart was given an 808, she would use it.",
+			"If Beethoven was given an 808, she would use it.",
 			"Why drink on the bus when you can drink and drive?",
 			"You don't make 100% of the shots every time.",
 			"No smoking? Lame.",
@@ -81,7 +90,12 @@
 			"School lunch is like the Boston Tea Party. Death or the Sandi Coast Cafe.",
 			"I am GOING to take pictures of your feet.",
 			"God may have created the earth in six days,<br />but that was before labor unions",
-			"Why do Charli XCX's feet look like hands?"
+			"Why do Charli XCX's feet look like hands?",
+			"Why is Mr. Williams looking at Charli XCX's feet?",
+			"I\'m the GOAT. Put me in the GOAT debate. With Messi.",
+			"You can't stop me from molding.",
+			"LeBron could\'ve run the Underground Railroad.",
+			"So we just like being railed?"
 		]
 
 		let attribs = [
@@ -113,8 +127,15 @@
 			'Edward Waller',
 			'Edward Waller',
 			'Edward Waller',
+			'Edward Waller',
+			'Edward Waller',
 			'Harry S. Truman',
-			'Mr. Williams'
+			'Mr. Williams',
+			'Edward Waller',
+			'Edward Waller',
+			'Levi Johnson',
+			'Edward Waller',
+			'Edward Waller'
 		]
 
 		let quote = document.getElementById('quote');

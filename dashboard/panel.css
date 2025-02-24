@@ -42,3 +42,8 @@ hr {
     margin-top: 15px;
     margin-bottom: 10px;
 }
+
+#away-score, #home-score {
+    width: 60px;
+    text-align: center;
+}

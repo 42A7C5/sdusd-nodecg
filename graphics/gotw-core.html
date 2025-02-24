@@ -92,11 +92,11 @@
 			display: inline-block;
 			color: white;
 			padding: 0.5vw;
-			width: 15vw;
+			width: 10vw;
 			border-radius: 1vw;
 			text-align: center;
 			font-weight: 500;
-			border: 3px solid #FDB913;
+			border: 0.5vw solid #FDB913;
 			font-size: 3.5vw;
 			position: fixed;
 			top: 2vw;
@@ -514,6 +514,23 @@
 
 		awaySchool.on('change', newValue => {
 			$('#infobox-away-school').text(newValue)
+			// if (newValue == 'Canyon Hills') {
+			// 	let tickName = false;
+			// 	setInterval(() => {
+			// 		if (tickName) {
+			// 			$('#infobox-away-school').fadeOut(250, () => {
+			// 				$('#infobox-away-school').text('Canyon Hills');
+			// 				$('#infobox-away-school').fadeIn(250);
+			// 			});
+			// 		} else {
+			// 			$('#infobox-away-school').fadeOut(250, () => {
+			// 				$('#infobox-away-school').text('Mat Kwatup KunKun');
+			// 				$('#infobox-away-school').fadeIn(250);
+			// 			});
+			// 		}
+			// 		tickName = !tickName;
+			// 	}, 4000);
+			// }
 		})
 
 		awayTeam.on('change', newValue => {
@@ -538,6 +555,23 @@
 
 		homeSchool.on('change', newValue => {
 			$('#infobox-home-school').text(newValue)
+			// if (newValue == 'Canyon Hills') {
+			// 	let tickName = false;
+			// 	setInterval(() => {
+			// 		if (tickName) {
+			// 			$('#infobox-home-school').fadeOut(250, () => {
+			// 				$('#infobox-home-school').text('Canyon Hills');
+			// 				$('#infobox-home-school').fadeIn(250);
+			// 			});
+			// 		} else {
+			// 			$('#infobox-home-school').fadeOut(250, () => {
+			// 				$('#infobox-home-school').text('Mat Kwatup KunKun');
+			// 				$('#infobox-home-school').fadeIn(250);
+			// 			});
+			// 		}
+			// 		tickName = !tickName;
+			// 	}, 4000);
+			// }
 		})
 
 		homeTeam.on('change', newValue => {
@@ -586,12 +620,9 @@
 
 		nodecg.listenFor('visible-matchup-slate', isVisible => {
 			if (isVisible) {
-				// nodecg.stopSound('bg-music');
-				// nodecg.playSound('bg-music');
 				$('#slate').fadeIn(300);
 				$('#slate-overlay').fadeIn(300);
 			} else {
-				// nodecg.stopSound('bg-music');
 				$('#slate').fadeOut(300);
 				$('#slate-overlay').fadeOut(300);
 			}

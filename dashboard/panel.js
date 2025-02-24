@@ -202,9 +202,54 @@ if (document.querySelector('.button-qt-x')) {
     document.querySelector('.button-p-2').addEventListener('click', () => { qtrRef.value = "P2" })
     document.querySelector('.button-p-ot').addEventListener('click', () => { qtrRef.value = "OT" })
 
-    document.querySelector('#button-save-score').addEventListener('click', () => {
+    document.querySelector('#away-score').addEventListener('change', () => {
         awayScore.value = document.querySelector('#away-score').value
+    })
+
+    document.querySelector('.button-away-p1').addEventListener('click', () => {
+        let score = Number(awayScore.value)
+        score += 1
+        awayScore.value = Number(awayScore.value) + 1
+        document.querySelector('#away-score').value = score
+    })
+    
+    document.querySelector('.button-away-p2').addEventListener('click', () => {
+        let score = Number(awayScore.value)
+        score += 2
+        awayScore.value = Number(awayScore.value) + 2
+        document.querySelector('#away-score').value = score
+    })
+
+    document.querySelector('.button-away-p3').addEventListener('click', () => {
+        let score = Number(awayScore.value)
+        score += 3
+        awayScore.value = Number(awayScore.value) + 3
+        document.querySelector('#away-score').value = score
+    })
+
+    document.querySelector('#home-score').addEventListener('change', () => {
         homeScore.value = document.querySelector('#home-score').value
+    })
+
+    document.querySelector('.button-home-p1').addEventListener('click', () => {
+        let score = Number(homeScore.value)
+        score += 1
+        homeScore.value = Number(homeScore.value) + 1
+        document.querySelector('#home-score').value = score
+    })
+
+    document.querySelector('.button-home-p2').addEventListener('click', () => {
+        let score = Number(homeScore.value)
+        score += 2
+        homeScore.value = Number(homeScore.value) + 2
+        document.querySelector('#home-score').value = score
+    })
+
+    document.querySelector('.button-home-p3').addEventListener('click', () => {
+        let score = Number(homeScore.value)
+        score += 3
+        homeScore.value = Number(homeScore.value) + 3
+        document.querySelector('#home-score').value = score
     })
 
 }
